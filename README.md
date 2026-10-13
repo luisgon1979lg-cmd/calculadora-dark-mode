@@ -10,10 +10,10 @@ Aplicación de escritorio moderna desarrollada en Python utilizando `tkinter` y 
   - Suma (+)
   - Resta (-)
   - Multiplicación (×)
-  - División (÷) con control y validación de división entre cero.
-- **Acciones Rápidas**:
-  - Botón **Calcular** (rojo) para procesar los datos.
-  - Botón **Limpiar** (verde) para restablecer los campos y el resultado.
+  - División (÷) mostrando Infinito (∞) al dividir por cero.
+- **Acciones Rápidas y Accesibilidad**:
+  - Botón **Calcular** (rojo) para procesar los datos (soporta ejecución directa con la tecla `Enter`).
+  - Botón **Limpiar** (verde) para restablecer los campos y el resultado (soporta la tecla `Enter`).
 - **Validación de Entradas**: Detección de campos vacíos o valores no numéricos.
 
 ## Requisitos
