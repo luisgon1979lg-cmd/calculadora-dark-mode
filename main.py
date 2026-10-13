@@ -155,7 +155,7 @@ class CalculadoraDarkApp:
         frame_botones.pack(pady=(5, 20))
 
         # Botón Calcular (rojo con texto blanco)
-        btn_calcular = tk.Button(
+        self.btn_calcular = tk.Button(
             frame_botones,
             text="Calcular",
             command=self.calcular,
@@ -167,12 +167,16 @@ class CalculadoraDarkApp:
             relief="flat",
             cursor="hand2",
             padx=24,
-            pady=8
+            pady=8,
+            highlightthickness=2,
+            highlightbackground=self.BG_TARJETA,
+            highlightcolor="#ffffff"
         )
-        btn_calcular.pack(side="left", padx=10)
+        self.btn_calcular.pack(side="left", padx=10)
+        self.btn_calcular.bind("<Return>", lambda event: self.calcular())
 
         # Botón Limpiar (verde con texto blanco)
-        btn_limpiar = tk.Button(
+        self.btn_limpiar = tk.Button(
             frame_botones,
             text="Limpiar",
             command=self.limpiar,
@@ -184,9 +188,17 @@ class CalculadoraDarkApp:
             relief="flat",
             cursor="hand2",
             padx=24,
-            pady=8
+            pady=8,
+            highlightthickness=2,
+            highlightbackground=self.BG_TARJETA,
+            highlightcolor="#ffffff"
         )
-        btn_limpiar.pack(side="left", padx=10)
+        self.btn_limpiar.pack(side="left", padx=10)
+        self.btn_limpiar.bind("<Return>", lambda event: self.limpiar())
+
+        # Permitir calcular al presionar Enter en los campos de texto
+        self.entry_num1.bind("<Return>", lambda event: self.calcular())
+        self.entry_num2.bind("<Return>", lambda event: self.calcular())
 
         # --- RESULTADO INFERIOR ---
         lbl_resultado = tk.Label(
@@ -198,7 +210,7 @@ class CalculadoraDarkApp:
         )
         lbl_resultado.pack(pady=(5, 5))
 
-    def limpiar(self):
+    def limpiar(self, event=None):
         """Borra el contenido de los dos campos y restablece el resultado."""
         self.num1_var.set("")
         self.num2_var.set("")
@@ -206,7 +218,7 @@ class CalculadoraDarkApp:
         self.resultado_var.set("Resultado: —")
         self.entry_num1.focus_set()
 
-    def calcular(self):
+    def calcular(self, event=None):
         """Valida entradas y calcula el resultado."""
         str_n1 = self.num1_var.get().strip()
         str_n2 = self.num2_var.get().strip()
