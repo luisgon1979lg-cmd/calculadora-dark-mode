@@ -258,8 +258,8 @@ class CalculadoraDarkApp:
             res = n1 * n2
         elif operacion == "Dividir":
             if n2 == 0:
-                messagebox.showerror("Error Matemático", "No es posible dividir entre cero.")
-                self.resultado_var.set("Resultado: Error (división por cero)")
+                signo = "-" if n1 < 0 else ""
+                self.resultado_var.set(f"Resultado: {signo}∞ (Infinito)")
                 return
             res = n1 / n2
         else:
